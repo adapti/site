@@ -1,4 +1,6 @@
 require 'sinatra'
+require 'rubygems'
+require 'pony'
 
 get '/' do
   'Hello world'
@@ -13,4 +15,16 @@ post '/contato' do
   # Para ajudar a enviar o email, cheque a gem
   # https://github.com/benprew/pony
   # http://adam.heroku.com/past/2008/11/2/pony_the_express_way_to_send_email_from_ruby/
+
+  nome = params[:nome] 
+  email = params [:email] 
+  mensagem = params [:mensagem]
+
+  if !email.blank? and !nome.blank? and !mensagem.blank?
+    Pony.mail(:to => 'willianvdantas@gmail.com', :from => email , :subject => "Formulario enviado por " + nome, :body => mensagem)
+    flash[:msg] = 'O email foi enviado com sucesso'
+  else  
+    flash[:msg] = 'Nao foi enviado o email'  
+  end  
+  
 end
