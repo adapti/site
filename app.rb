@@ -3,8 +3,6 @@ require 'sinatra/base'
 
 class MyApp < Sinatra::Base
   get '/' do
-    @title = 'UHULL Hello World'
-
     erb :index
   end
 
