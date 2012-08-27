@@ -1,4 +1,3 @@
-require 'sinatra'
 require 'rubygems'
 require 'pony'
 require 'sinatra/base'
@@ -28,6 +27,5 @@ class MyApp < Sinatra::Base
     else  
       flash[:msg] = 'Nao foi enviado o email'  
     end  
-    
   end
 end
