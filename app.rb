@@ -1,10 +1,11 @@
-require 'rubygems'
 require 'pony'
 require 'sinatra/base'
 
 class MyApp < Sinatra::Base
   get '/' do
-    'Hello world'
+    @title = 'UHULL Hello World'
+
+    erb :index
   end
 
   post '/contato' do
