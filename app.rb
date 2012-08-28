@@ -27,6 +27,7 @@ class MyApp < Sinatra::Base
       flash[:msg] = 'Nao foi enviado o email'  
     end  
   end
+  
   not_found do
     erb :error404
   end
